@@ -13,9 +13,10 @@ function convertTextToBraille() {
   const inputText = document.getElementById('sourceLangText').value;
   const inputArray = inputText.split('');
   let convertedString = '';
-  for (let i = 0; i < inputText.length; i += 1) {
-    convertedString += myMap.get(inputArray[i]);
-  }
+  convertedString = inputArray.map(item => myMap.get(item)).join('');
+  // for (let i = 0; i < inputText.length; i += 1) {
+  //   convertedString += myMap.get(inputArray[i]);
+  // }
   document.getElementById('targetLangText').innerHTML = convertedString;
   return convertedString;
 }
